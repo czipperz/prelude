@@ -22,7 +22,7 @@ bool Iterator<T>::max_size(size_type&) const {
 }
 
 template <class T>
-typename Iterator<T>::size_type Iterator<T>::count() {
+typename Iterator<T>::size_type Iterator<T>::count() const {
     Iterator<T>::size_type count = 0;
     for (; this->get(); ++count) {
         ++*this;
@@ -31,7 +31,7 @@ typename Iterator<T>::size_type Iterator<T>::count() {
 }
 
 template <class T>
-typename Iterator<T>::item_type* Iterator<T>::last() {
+typename Iterator<T>::item_type* Iterator<T>::last() const {
     Iterator<T>::item_type* t = this->get();
     while (t) {
         t = (++*this).get();
@@ -40,7 +40,7 @@ typename Iterator<T>::item_type* Iterator<T>::last() {
 }
 
 template <class T>
-typename Iterator<T>::item_type* Iterator<T>::nth(Iterator<T>::size_type n) {
+typename Iterator<T>::item_type* Iterator<T>::nth(Iterator<T>::size_type n) const {
     for (; this->get(); ++*this) {
         if (n == 0) {
             return this->get();

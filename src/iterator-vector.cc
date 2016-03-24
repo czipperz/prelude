@@ -1,3 +1,4 @@
+#if 0
 #ifndef HEADER_GUARD_VECTOR_C
 #define HEADER_GUARD_VECTOR_C
 
@@ -68,4 +69,5 @@ VectorIterator<T, Iter>::nth(size_type n) {
 }
 }
 
+#endif
 #endif

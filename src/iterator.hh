@@ -3,6 +3,7 @@
 
 #include <string.h>
 #include <vector>
+#include "option.hh"
 
 namespace prelude {
 
@@ -83,6 +84,12 @@ BidirectionalRandomIterator next(
 }
 #endif
 
+template <class Iterator>
+option<size_t> min_size(const Iterator&) { return 0; }
+
+template <class Iterator>
+option<size_t> max_size(const Iterator&) { return none; }
+
 template <class T>
 struct Iterator {
     typedef T item_type;
@@ -95,9 +102,9 @@ struct Iterator {
 
     virtual bool min_size(size_type&) const;
     virtual bool max_size(size_type&) const;
-    virtual size_type count();
-    virtual item_type* last();
-    virtual item_type* nth(size_type n);
+    virtual size_type count() const;
+    virtual item_type* last() const;
+    virtual item_type* nth(size_type n) const;
 
     virtual ~Iterator() {}
 };

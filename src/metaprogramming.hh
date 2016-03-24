@@ -33,13 +33,24 @@ struct static_type_if<false, True, False> : type_declaration<False> {
 };
 
 template <bool cond, class Type>
-struct static_if;
-
-template <class Type>
-struct static_if<false, Type> {};
-
+struct static_if {};
 template <class Type>
 struct static_if<true, Type> : type_declaration<Type> {};
+
+template <class T>
+struct return_type_0 {};
+template <class Ret>
+struct return_type_0<Ret()> : type_declaration<Ret> {};
+
+template <class T>
+struct return_type_1 {};
+template <class A, class Ret>
+struct return_type_1<Ret(A)> : type_declaration<Ret> {};
+
+template <class T>
+struct return_type_2 {};
+template <class A, class B, class Ret>
+struct return_type_2<Ret(A, B)> : type_declaration<Ret> {};
 
 #if __cplusplus >= 201103L
 template <class A, class... B>

@@ -1,3 +1,4 @@
+#if 0
 #ifndef HEADER_GUARD_VECTOR_H
 #define HEADER_GUARD_VECTOR_H
 
@@ -57,4 +58,5 @@ VectorIterator<T> iterator(std::vector<T>& vector) {
 
 #include "iterator-vector.cc"
 
+#endif
 #endif
